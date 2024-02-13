@@ -1,0 +1,185 @@
+--
+-- PostgresSQL database dump
+--
+
+-- Dumped from database version 14.11 (Homebrew)
+-- Dumped by pg_dump version 14.11 (Homebrew)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: auto_ria; Type: TABLE; Schema: public; Owner: olenachaika
+--
+
+CREATE TABLE public.auto_ria (
+    id integer NOT NULL,
+    url character varying(255),
+    title character varying(255),
+    price_usd integer,
+    odometer integer,
+    user_name character varying(255),
+    phone_number integer,
+    image_url character varying(255),
+    image_count integer,
+    car_number character varying(255),
+    car_vin character varying(255),
+    datetime_found timestamp without time zone
+);
+
+
+ALTER TABLE public.auto_ria OWNER TO olenachaika;
+
+--
+-- Name: auto_ria_id_seq; Type: SEQUENCE; Schema: public; Owner: olenachaika
+--
+
+CREATE SEQUENCE public.auto_ria_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.auto_ria_id_seq OWNER TO olenachaika;
+
+--
+-- Name: auto_ria_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: olenachaika
+--
+
+ALTER SEQUENCE public.auto_ria_id_seq OWNED BY public.auto_ria.id;
+
+
+--
+-- Name: auto_ria id; Type: DEFAULT; Schema: public; Owner: olenachaika
+--
+
+ALTER TABLE ONLY public.auto_ria ALTER COLUMN id SET DEFAULT nextval('public.auto_ria_id_seq'::regclass);
+
+
+--
+-- Data for Name: auto_ria; Type: TABLE DATA; Schema: public; Owner: olenachaika
+--
+
+COPY public.auto_ria (id, url, title, price_usd, odometer, user_name, phone_number, image_url, image_count, car_number, car_vin, datetime_found) FROM stdin;
+1	https://auto.ria.com	BMW	10000	100000	Vitalii	1234567890	https://auto.ria.com/image.jpg	10	123456	VIN123456	2024-02-12 13:15:55.791015
+2	https://auto.ria.com/auto_dodge_durango_36043492.html	Dodge Durango 2017	17800	225000	Максим Владимирович	0	https://cdn1.riastatic.com/photosnew/auto/photo/dodge_durango__536709566f.jpg	82	KA 1417 ET		2024-02-13 19:40:21.496393
+3	https://auto.ria.com/auto_mercedes_benz_s_class_32809052.html	Mercedes-Benz S-Class 2014	51000	100000	Миша	0	https://cdn4.riastatic.com/photosnew/auto/photo/mercedes-benz_s-class__454335164f.jpg	119	BH 0100 BB	WDDUG7JBxFAxxxx16	2024-02-13 19:40:22.479703
+4	https://auto.ria.com/auto_volkswagen_golf_plus_36033202.html	Volkswagen Golf Plus 2006	7100	135000	Сергій Станіславович	0	https://cdn1.riastatic.com/photosnew/auto/photo/volkswagen_golf-plus__536447496f.jpg	73		WVWZZZ1KZ7W501232	2024-02-13 19:40:23.33042
+5	https://auto.ria.com/auto_peugeot_508_34970735.html	Peugeot 508 2020	29900	31000	Игорь	0	https://cdn3.riastatic.com/photosnew/auto/photo/peugeot_508__508613883f.jpg	32	BI 0508 HH	VR3F35GXVKY194630	2024-02-13 19:40:24.09848
+6	https://auto.ria.com/auto_mercedes_benz_sprinter_36014361.html	Mercedes-Benz Sprinter 2018	21800	197000		0	https://cdn4.riastatic.com/photosnew/auto/photo/mercedes-benz_sprinter__535930159f.jpg	14		WDB9061332N772348	2024-02-13 19:40:25.149905
+7	https://auto.ria.com/auto_bmw_x5_36038972.html	BMW X5 2015	37000	185000	Iliya Сергеевич Ilinov	0	https://cdn2.riastatic.com/photosnew/auto/photo/bmw_x5__536519532f.jpg	14	AE 7230 KK	WBALS010400S33589	2024-02-13 19:40:25.912892
+8	https://auto.ria.com/auto_bmw_x5_35850948.html	BMW X5 2015	30900	158000	Евгений Тихий	0	https://cdn1.riastatic.com/photosnew/auto/photo/bmw_x5__531510141f.jpg	15	KA 0180 CO	WBALS010x00xxxx61	2024-02-13 19:40:26.696293
+9	https://auto.ria.com/auto_honda_ens1_35968962.html	Honda eNS1 2023	23200	1000		0	https://cdn2.riastatic.com/photosnew/auto/photo/honda_ens1__534694552f.jpg	29		LVHRS1859P5204034	2024-02-13 19:40:27.497481
+10	https://auto.ria.com/auto_volkswagen_passat_36038481.html	Volkswagen Passat 2018	16607	203000		0	https://cdn2.riastatic.com/photosnew/auto/photo/volkswagen_passat__536588202f.jpg	83		WVWZZZ3CZJE056870	2024-02-13 19:40:28.226678
+11	https://auto.ria.com/auto_honda_ens1_36038664.html	Honda eNS1 2023	23200	1000		0	https://cdn2.riastatic.com/photosnew/auto/photo/honda_ens1__536595272f.jpg	51		LVHRS1854P5202787	2024-02-13 19:40:29.596928
+12	https://auto.ria.com/auto_honda_ens1_35893914.html	Honda eNS1 2023	23200	1000		0	https://cdn0.riastatic.com/photosnew/auto/photo/honda_ens1__532690020f.jpg	31		LVHRS1854P5204037	2024-02-13 19:40:30.416449
+13	https://auto.ria.com/auto_volkswagen_passat_36018741.html	Volkswagen Passat 2019	22685	191000		0	https://cdn1.riastatic.com/photosnew/auto/photo/volkswagen_passat__536072821f.jpg	81		WVWZZZ3CZKE022776	2024-02-13 19:40:31.189087
+14	https://auto.ria.com/auto_honda_ens1_35939625.html	Honda eNS1 2023	20000	1000		0	https://cdn2.riastatic.com/photosnew/auto/photo/honda_ens1__533953257f.jpg	37		LVHRS1827P5204944	2024-02-13 19:40:32.046447
+15	https://auto.ria.com/auto_honda_ens1_35918947.html	Honda eNS1 2023	23200	1000		0	https://cdn4.riastatic.com/photosnew/auto/photo/honda_ens1__533384499f.jpg	30		LVHRS1853P5204031	2024-02-13 19:40:33.343935
+16	https://auto.ria.com/auto_audi_q7_35692628.html	Audi Q7 2015	24700	135000	Александр	0	https://cdn2.riastatic.com/photosnew/auto/photo/audi_q7__531897297f.jpg	75	CB 7777 HE	WA1LGAFEXFD027543	2024-02-13 19:40:34.084561
+17	https://auto.ria.com/auto_volkswagen_touareg_36042540.html	Volkswagen Touareg 2015	24850	246000	Іван	0	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_touareg__536688369f.jpg	47	AT 2842 IA	WVGZZZ7PZGD011078	2024-02-13 19:40:34.875965
+18	https://auto.ria.com/auto_volkswagen_touareg_35737175.html	Volkswagen Touareg 2020	56499	78000		0	https://cdn2.riastatic.com/photosnew/auto/photo/volkswagen_touareg__528493177s.jpg	109		WVGZZZCRZMD005612	2024-02-13 19:40:36.265726
+19	https://auto.ria.com/auto_audi_q7_32733217.html	Audi Q7 2012	17999	196000	Andrii	0	https://cdn3.riastatic.com/photosnew/auto/photo/audi_q7__536676488f.jpg	31		WA1LGAFExCDxxxx29	2024-02-13 19:40:37.18357
+20	https://auto.ria.com/auto_audi_sq8_35138974.html	Audi SQ8 2020	82500	148000	Дмитро Миколайович	0	https://cdn0.riastatic.com/photosnew/auto/photo/audi_sq8__513010945f.jpg	68		WAUZZZF14MD004209	2024-02-13 19:40:37.994234
+21	https://auto.ria.com/auto_bmw_x3_35704403.html	BMW X3 2019	35000	78000	Макс	0	https://cdn2.riastatic.com/photosnew/auto/photo/bmw_x3__527588717f.jpg	26	KA 3938 EH	WBATR51050LF97370	2024-02-13 19:40:38.90098
+22	https://auto.ria.com/auto_volkswagen_touareg_36045329.html	Volkswagen Touareg 2011	19955	200000	Юрій	0	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_touareg__536759190f.jpg	126		WVGZZZ7PxEDxxxx00	2024-02-13 19:40:40.275622
+23	https://auto.ria.com/auto_bmw_x5_35982093.html	BMW X5 2016	39900	178000		0	https://cdn1.riastatic.com/photosnew/auto/photo/bmw_x5__535081541f.jpg	29	KE 7770 CP	WBAKS810x00xxxx45	2024-02-13 19:40:41.325287
+24	https://auto.ria.com/auto_volkswagen_id_4_crozz_36014408.html	Volkswagen ID.4 Crozz 2023	28300	1000		0	https://cdn1.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535954151f.jpg	28		LFVVB9E66P5010734	2024-02-13 19:40:42.147585
+25	https://auto.ria.com/auto_bmw_x3_35177838.html	BMW X3 2018	30888	48000	Александр	0	https://cdn4.riastatic.com/photosnew/auto/photo/bmw_x3__513769484f.jpg	29	AE 8880 IC	WBATR3102JLA52166	2024-02-13 19:40:42.871873
+26	https://auto.ria.com/auto_mercedes_benz_e_class_35175714.html	Mercedes-Benz E-Class 2017	27500	91000	Сергій	0	https://cdn2.riastatic.com/photosnew/auto/photo/mercedes-benz_e-class__513703942f.jpg	23	BH 6300 PT	WDDZF4KB4HA198346	2024-02-13 19:40:43.626876
+27	https://auto.ria.com/auto_mercedes_benz_e_class_36007050.html	Mercedes-Benz E-Class 2019	72000	38000	Алена	0	https://cdn1.riastatic.com/photosnew/auto/photo/mercedes-benz_e-class__535750176f.jpg	18	KA 5300 IA	WDD2383611F121027	2024-02-13 19:41:00.470179
+28	https://auto.ria.com/auto_volkswagen_id_4_crozz_35940260.html	Volkswagen ID.4 Crozz 2023	28300	1000		0	https://cdn3.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__533971868f.jpg	33		LFVVB9E6XP5009232	2024-02-13 19:41:01.419158
+29	https://auto.ria.com/auto_caterpillar_432_36043268.html	Caterpillar 432 2013	43000	5000	Олександр	0	https://cdn2.riastatic.com/photosnew/auto/photo/caterpillar_432__536708512f.jpg	7			2024-02-13 19:41:02.308092
+30	https://auto.ria.com/auto_renault_megane_36042542.html	Renault Megane 2014	6480	340000	Сергей	0	https://cdn2.riastatic.com/photosnew/auto/photo/renault_megane__536689847f.jpg	26	KA 6298 CB	VF1KZ0R0250282244	2024-02-13 19:41:03.183295
+31	https://auto.ria.com/auto_volkswagen_id_4_crozz_36015513.html	Volkswagen ID.4 Crozz 2023	28750	1000		0	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535987925f.jpg	36		LFVVB9E68P5017842	2024-02-13 19:41:03.947762
+32	https://auto.ria.com/auto_volkswagen_id_4_crozz_35979119.html	Volkswagen ID.4 Crozz 2023	28280	1000		0	https://cdn1.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__534990936f.jpg	19		LFVVB9E61P5010446	2024-02-13 19:41:04.762226
+33	https://auto.ria.com/auto_triumph_street_twin_35084949.html	Triumph Street Twin 2019	11000	1000	Володя	0	https://cdn2.riastatic.com/photosnew/auto/photo/triumph_street-twin__511670967f.jpg	5			2024-02-13 19:41:05.464183
+34	https://auto.ria.com/auto_volkswagen_id_4_crozz_36015482.html	Volkswagen ID.4 Crozz 2023	31300	1000		0	https://cdn3.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535986733f.jpg	34		LFVVB9E69P5016365	2024-02-13 19:41:06.198408
+35	https://auto.ria.com/auto_volkswagen_id_4_crozz_35981399.html	Volkswagen ID.4 Crozz 2023	28300	1000		0	https://cdn2.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535060117f.jpg	34		LFVVB9E62P5015705	2024-02-13 19:41:06.920078
+36	https://auto.ria.com/auto_volkswagen_id_4_crozz_35975971.html	Volkswagen ID.4 Crozz 2023	28300	1000		0	https://cdn3.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__534894613f.jpg	33		LFVVB9E63P5010318	2024-02-13 19:41:07.721154
+37	https://auto.ria.com/auto_jcb_8025_35024766.html	JCB 8025 2016	35710	2000	Олег	0	https://cdn3.riastatic.com/photosnew/auto/photo/jcb_8025__514629273f.jpg	11			2024-02-13 19:41:08.525562
+38	https://auto.ria.com/auto_tesla_model_y_36024954.html	Tesla Model Y 2022	39999	15000	Юрій	0	https://cdn2.riastatic.com/photosnew/auto/photo/tesla_model-y__536237487f.jpg	14	BC 2381 YA		2024-02-13 19:41:09.26829
+39	https://auto.ria.com/auto_audi_a6_36023449.html	Audi A6 2011	18200	120000	Тарас	0	https://cdn1.riastatic.com/photosnew/auto/photo/audi_a6__536196666f.jpg	38	AX 8822 AO	WAUZZZ4G5BN033636	2024-02-13 19:41:10.013246
+40	https://auto.ria.com/auto_bmw_x6_35709747.html	BMW X6 2018	54000	78000	Дмитрий	0	https://cdn3.riastatic.com/photosnew/auto/photo/bmw_x6__527737888f.jpg	22	AE 7781 II	WBAKV210300Z84200	2024-02-13 19:41:10.779556
+41	https://auto.ria.com/auto_volkswagen_id_4_crozz_35852534.html	Volkswagen ID.4 Crozz 2023	37950	1000		0	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__531548169f.jpg	58		LFVVB9E6XP5020358	2024-02-13 19:41:11.593643
+42	https://auto.ria.com/auto_volkswagen_id_4_crozz_35982520.html	Volkswagen ID.4 Crozz 2023	28590	1000		0	https://cdn3.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535095588f.jpg	29		LFVVB9E60P5015413	2024-02-13 19:41:12.342798
+43	https://auto.ria.com/auto_renault_megane_35424438.html	Renault Megane 2014	9700	175000	Maria Marchuk	0	https://cdn0.riastatic.com/photosnew/auto/photo/renault_megane__520119075f.jpg	24	AB 5936 KH	VF1KZ140651714648	2024-02-13 19:41:13.106683
+44	https://auto.ria.com/auto_jcb_175_36043306.html	JCB 175 2006	44000	2000	Олександр	0	https://cdn3.riastatic.com/photosnew/auto/photo/jcb_175__536709543f.jpg	15			2024-02-13 19:41:14.468926
+45	https://auto.ria.com/auto_mercedes_benz_gle_class_35833598.html	Mercedes-Benz GLE-Class 2022	115900	16000	Мирослава	0	https://cdn4.riastatic.com/photosnew/auto/photo/mercedes-benz_gle-class__531058074f.jpg	33	AO 2404 HP	W1N16736x1Axxxx26	2024-02-13 19:41:15.216712
+46	https://auto.ria.com/auto_volkswagen_id_4_crozz_36015440.html	Volkswagen ID.4 Crozz 2023	27500	1000		0	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535985535f.jpg	28		LFVVB9E64P5019237	2024-02-13 19:41:16.550587
+47	https://auto.ria.com/auto_volkswagen_tiguan_36035384.html	Volkswagen Tiguan 2018	20500	135000		0	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_tiguan__536504924f.jpg	14	AE 0660 IM		2024-02-13 19:41:17.671871
+48	https://auto.ria.com/auto_tder_fds_30_35868217.html	Tder FDS 30 2022	25000	1000	Олексій	0	https://cdn4.riastatic.com/photosnew/auto/photo/tder_fds-30__531962824f.jpg	11			2024-02-13 19:41:18.633628
+49	https://auto.ria.com/auto_bmw_x5_35982367.html	BMW X5 2012	16500	225000		0	https://cdn1.riastatic.com/photosnew/auto/photo/bmw_x5__535091466f.jpg	17		5UXZW0C59CL673898	2024-02-13 19:41:19.908089
+50	https://auto.ria.com/auto_volkswagen_tiguan_35778886.html	Volkswagen Tiguan 2018	29999	145000		0	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_tiguan__529648629f.jpg	42		WVGZZZ5NZKW826624	2024-02-13 19:41:20.774121
+51	https://auto.ria.com/auto_nissan_tiida_36041491.html	Nissan TIIDA 2008	4350	188000	Сергей	0	https://cdn2.riastatic.com/photosnew/auto/photo/nissan_tiida__536665167f.jpg	11	AA 1874 HM	JN1CC13C28T013846	2024-02-13 19:41:21.835266
+52	https://auto.ria.com/auto_mercedes_benz_cls_class_35987678.html	Mercedes-Benz CLS-Class 2005	7800	195000	Ваня Хорошая Цена	0	https://cdn3.riastatic.com/photosnew/auto/photo/mercedes-benz_cls-class__535549388f.jpg	52	KA 5912 EO	WDD2193561A033167	2024-02-13 19:41:22.60542
+53	https://auto.ria.com/auto_honda_accord_36039120.html	Honda Accord 2008	10750	90000	Денис Георгиевич	0	https://cdn3.riastatic.com/photosnew/auto/photo/honda_accord__536605413f.jpg	97	BH 9797 BT	JHMCP26748C412519	2024-02-13 19:41:23.423134
+54	https://auto.ria.com/auto_citroen_berlingo_35844421.html	Citroen Berlingo 2018	12300	82000	Дмитро	0	https://cdn4.riastatic.com/photosnew/auto/photo/citroen_berlingo__531346494f.jpg	28	HK 0239 AB	VR7EFYHYCJJ853762	2024-02-13 19:41:24.326144
+55	https://auto.ria.com/auto_volkswagen_passat_alltrack_35682264.html	Volkswagen Passat Alltrack 2019	23000	213000		0	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_passat-alltrack__535191100f.jpg	53	KA 1579 MC	WVWZZZ3CxLExxxx42	2024-02-13 19:41:25.137176
+56	https://auto.ria.com/auto_volkswagen_id_4_crozz_36020773.html	Volkswagen ID.4 Crozz 2023	26500	1000		0	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__536129155f.jpg	27		LFVVB9E68P5029771	2024-02-13 19:41:26.071618
+57	https://auto.ria.com/auto_volkswagen_id_4_crozz_36015653.html	Volkswagen ID.4 Crozz 2023	28750	1000		0	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535991375f.jpg	37		LFVVB9E68P5015675	2024-02-13 19:41:26.820484
+58	https://auto.ria.com/auto_mercedes_benz_gle_class_35310059.html	Mercedes-Benz GLE-Class 2018	49500	216000	Андрій	0	https://cdn4.riastatic.com/photosnew/auto/photo/mercedes-benz_gle-class__517173409f.jpg	47	CE 0892 EO		2024-02-13 19:41:27.606408
+59	https://auto.ria.com/auto_skoda_octavia_35635854.html	Skoda Octavia 2018	12999	225000	Саша	0	https://cdn1.riastatic.com/photosnew/auto/photo/skoda_octavia__526287346s.jpg	41		TMBJG7NE0K004527	2024-02-13 19:41:28.66378
+60	https://auto.ria.com/auto_daf_cf_85_36033006.html	DAF CF 85 2008	28500	650000	Alex	0	https://cdn3.riastatic.com/photosnew/auto/photo/daf_cf-85__536445963f.jpg	11			2024-02-13 19:41:29.620892
+61	https://auto.ria.com/auto_volkswagen_id_4_crozz_36015607.html	Volkswagen ID.4 Crozz 2023	27500	1000		0	https://cdn3.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535990338f.jpg	35		LFVVB9E60P5022328	2024-02-13 19:41:30.323642
+62	https://auto.ria.com/auto_volkswagen_passat_36042245.html	Volkswagen Passat 2019	32999	52000		0	https://cdn3.riastatic.com/photosnew/auto/photo/volkswagen_passat__536682968f.jpg	100		WVWZZZ3CZLE043273	2024-02-13 19:41:31.554363
+63	https://auto.ria.com/auto_volkswagen_id_4_crozz_35974113.html	Volkswagen ID.4 Crozz 2023	37500	1000		0	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__534849964f.jpg	58		LFVVB9E66P5016372	2024-02-13 19:41:32.364011
+64	https://auto.ria.com/auto_jcb_3cx_super_35106524.html	JCB 3CX Super 1998	21000	10000	Міша	0	https://cdn4.riastatic.com/photosnew/auto/photo/jcb_3cx-super__525518499f.jpg	18			2024-02-13 19:41:33.162633
+65	https://auto.ria.com/auto_skoda_octavia_35817793.html	Skoda Octavia 2019	14700	215000	Сергій Станіславович	0	https://cdn1.riastatic.com/photosnew/auto/photo/skoda_octavia__530664521f.jpg	162		TMBJG9NE7K0183019	2024-02-13 19:41:33.923589
+66	https://auto.ria.com/auto_volkswagen_id_4_crozz_35975798.html	Volkswagen ID.4 Crozz 2023	37950	1000		0	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__534898305f.jpg	31		LFVVB9E67P5020432	2024-02-13 19:41:36.235872
+67	https://auto.ria.com/auto_volkswagen_tiguan_35923241.html	Volkswagen Tiguan 2021	40999	25000	Виталий	0	https://cdn2.riastatic.com/photosnew/auto/photo/volkswagen_tiguan__533505462f.jpg	20	KA 6015 EA	WVGZZZ5NZMW547196	2024-02-13 19:41:37.028683
+68	https://auto.ria.com/auto_audi_q7_36038819.html	Audi Q7 2017	54999	81000		0	https://cdn1.riastatic.com/photosnew/auto/photo/audi_q7__536596911f.jpg	102		WAUZZZ4M3JD002301	2024-02-13 19:41:37.967353
+69	https://auto.ria.com/auto_bmw_x5_35665944.html	BMW X5 2016	36000	162000		0	https://cdn4.riastatic.com/photosnew/auto/photo/bmw_x5__526538814f.jpg	40		WBAKS6107H0N67576	2024-02-13 19:41:39.414699
+70	https://auto.ria.com/auto_skoda_kodiaq_35582391.html	Skoda Kodiaq 2018	34500	143000		0	https://cdn3.riastatic.com/photosnew/auto/photo/skoda_kodiaq__524307618f.jpg	50		TMBLK9NS0K8031761	2024-02-13 19:41:40.607499
+71	https://auto.ria.com/auto_volkswagen_id_4_crozz_36015636.html	Volkswagen ID.4 Crozz 2023	27500	1000		0	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535991069f.jpg	29		LFVVB9E61P5017669	2024-02-13 19:41:41.436011
+72	https://auto.ria.com/auto_kamaz_53229_35973215.html	КамАЗ 53229 2003	7552	150000	Ігор Володимирович Шалімов	0	https://cdn1.riastatic.com/photosnew/auto/photo/kamaz_53229__534824521f.jpg	5		X4869360x30xxxx87	2024-02-13 19:41:42.170947
+73	https://auto.ria.com/auto_kamaz_53229_35972950.html	КамАЗ 53229 2007	9115	150000	Ігор Володимирович Шалімов	0	https://cdn4.riastatic.com/photosnew/auto/photo/kamaz_53229__534815369f.jpg	5			2024-02-13 19:41:43.271945
+74	https://auto.ria.com/auto_skoda_kodiaq_35960695.html	Skoda Kodiaq 2019	38299	123000		0	https://cdn0.riastatic.com/photosnew/auto/photo/skoda_kodiaq__534465425f.jpg	100		TMBLK9NS8L8025756	2024-02-13 19:41:44.351937
+75	https://auto.ria.com/auto_honda_ens1_35902977.html	Honda eNS1 2023	23190	1000		0	https://cdn1.riastatic.com/photosnew/auto/photo/honda_ens1__532932586f.jpg	32		LVHRS1851P5204030	2024-02-13 19:41:45.252266
+76	https://auto.ria.com/auto_mercedes_benz_e_class_36039755.html	Mercedes-Benz E-Class 2007	6999	200000	Марян	0	https://cdn0.riastatic.com/photosnew/auto/photo/mercedes-benz_e-class__536622715f.jpg	78		WDB21108x1Bxxxx47	2024-02-13 19:41:46.013892
+77	https://auto.ria.com/auto_volkswagen_tiguan_35870361.html	Volkswagen Tiguan 2019	29555	89000		0	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_tiguan__532023844f.jpg	40		WVGZZZ5NZLW325040	2024-02-13 19:41:46.954869
+78	https://auto.ria.com/auto_toyota_land_cruiser_36032851.html	Toyota Land Cruiser 2011	30900	176000		0	https://cdn0.riastatic.com/photosnew/auto/photo/toyota_land-cruiser__536440435f.jpg	88	BH 4557 OB	JTMCV05J604060938	2024-02-13 19:41:48.328961
+79	https://auto.ria.com/auto_toyota_land_cruiser_36022755.html	Toyota Land Cruiser 2011	35000	177000	Юрий Коперсако	0	https://cdn1.riastatic.com/photosnew/auto/photo/toyota_land-cruiser__536181236f.jpg	36	HH 8887 PP	JTMHV05Jx04xxxx43	2024-02-13 19:41:49.14075
+80	https://auto.ria.com/auto_skoda_kodiaq_36018642.html	Skoda Kodiaq 2019	33799	173000		0	https://cdn1.riastatic.com/photosnew/auto/photo/skoda_kodiaq__536069831f.jpg	97		TMBLK9NS4K8078906	2024-02-13 19:41:50.36844
+81	https://auto.ria.com/auto_volkswagen_tiguan_36009725.html	Volkswagen Tiguan 2018	21900	86000	Анатолій	0	https://cdn2.riastatic.com/photosnew/auto/photo/volkswagen_tiguan__535824597f.jpg	62	AI 5540 PI	3VV3B7AX8JM213046	2024-02-13 19:41:51.158102
+82	https://auto.ria.com/auto_skoda_octavia_36045277.html	Skoda Octavia 2020	23999	159000		0	https://cdn2.riastatic.com/photosnew/auto/photo/skoda_octavia__536755052f.jpg	87		TMBJJ7NX5MY007534	2024-02-13 19:41:51.995222
+83	https://auto.ria.com/auto_bmw_5_series_36002460.html	BMW 5 Series 2007	8600	266000	Сергій Ваілд	0	https://cdn1.riastatic.com/photosnew/auto/photo/bmw_5-series__535621251f.jpg	43	BC 3314 PX	WBAPX11030CX35484	2024-02-13 19:41:52.906386
+84	https://auto.ria.com/auto_skoda_kodiaq_35880587.html	Skoda Kodiaq 2018	28999	168000		0	https://cdn4.riastatic.com/photosnew/auto/photo/skoda_kodiaq__532315759f.jpg	58		TMBLK9NS5J8075205	2024-02-13 19:41:53.753846
+85	https://auto.ria.com/auto_audi_e_tron_36044618.html	Audi e-tron 2019	37500	113000		0	https://cdn3.riastatic.com/photosnew/auto/photo/audi_e-tron__536740743f.jpg	22		WAUZZZGEXKB018528	2024-02-13 19:41:54.518181
+\.
+
+
+--
+-- Name: auto_ria_id_seq; Type: SEQUENCE SET; Schema: public; Owner: olenachaika
+--
+
+SELECT pg_catalog.setval('public.auto_ria_id_seq', 85, true);
+
+
+--
+-- Name: auto_ria auto_ria_pkey; Type: CONSTRAINT; Schema: public; Owner: olenachaika
+--
+
+ALTER TABLE ONLY public.auto_ria
+    ADD CONSTRAINT auto_ria_pkey PRIMARY KEY (id);
+
+
+--
+-- PostgresSQL database dump complete
+--
+

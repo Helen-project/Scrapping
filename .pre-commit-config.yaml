@@ -1,0 +1,18 @@
+repos:
+  - repo: https://github.com/python/black.git
+    rev: 22.3.0
+    hooks:
+      - id: black
+        exclude: ^packages/
+        args: [ '--line-length', '120']
+        language_version: python3
+  - repo: https://github.com/pycqa/flake8.git
+    rev: 4.0.1
+    hooks:
+      - id: flake8
+        exclude: ^packages/
+        args: ['--max-line-length', '120', '--extend-ignore', 'E203,BLK100,W605,F811', "--docstring-convention", "google"]
+        additional_dependencies:
+          - flake8-black==0.2.4
+          - flake8-docstrings==1.7.0
+        language_version: python3
